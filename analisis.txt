@@ -1,0 +1,53 @@
+10000-->todos
+Medios:20
+Altos:10
+Esto da mucha rapidez: 26s
+
+10000-->todos
+Medios:20
+Altos:10
+Esto da mucha rapidez: 26s
+
+100000--->todos
+Medios:20
+Altos:10
+No tanta rapidez 40s NO HAY CAMBIOS
+
+100000--->todos
+Medios:20
+Altos:20
+Mucho tiempo 1:27 MUCHOS CAMBIOS: unos 7 u 8
+Llega al límite de tiempo en 3 o 4
+
+10000--->todos
+Medios:20
+Altos:20
+Baja el tiempo: 55s MEJORA UNO: Pasa de 8 a 7
+Esto se debe a que no llega al límite de tiempo, mejorando de esa manera nuestro resultado!
+
+10000--->todos
+Medios:20
+Altos:Todos los primos
+Tiempo de 1:27 Mejora 2 con  respecto al anterior.
+Alcanza el límite en 3 o 4
+
+10000--->todos
+Medios:20
+Altos:Todos los primos
+Añadimos que se amplie el límite a 5 si sobra tiempo
+Tiempo de 1:31 Ninguna mejora
+No alcanza el límite
+
+100000--->todos
+Medios:20
+Altos:Todos los primos
+Añadimos que se amplie el límite a 5 si sobra tiempo
+Tiempo de 2:40 Ninguna mejora
+Alcanza el límite en varios
+
+10000--->todos
+Medios:20
+Altos:Todos los primos (Límite 100000000 en vez 10000000)
+Añadimos que se amplie el límite a 5 si sobra tiempo
+Tiempo de 1:40 Ninguna mejora
+No alcanza el límite

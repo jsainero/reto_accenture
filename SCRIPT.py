@@ -24,10 +24,10 @@ def create_cost_str_wd_time(n,cota,time):
         #    lista=reversed_prime_lite20; #Si se quiere refinar se pueden estudiar estos valores simulando muchos
         #elif (n<1000000):#1000000        #casos aleatorios y ajustando los valores
         #    lista=reversed_prime_lite20;
-        elif (n<10000000):#10000000
-            lista=reversed_prime_lite20; #El numero es medio, prueba con 20 primos
+        #elif (n<10000000):#10000000
+            #lista=reversed_prime_lite20; #El numero es medio, prueba con 20 primos
         else:
-            lista=reversed_prime_lite10; #El numero es grande, prueba con pocos primos
+            lista=reversed_prime; #El numero es grande, como hace comprobacion de tiempo metemos todos
         for p in lista:
                 a = n % p; #Hallamos lo que debemos restarle a n para que sea multiplo de p
                 if(a in costedic): #Si a no esta en el diccionario no lo barajamos como opcion (alto coste)
@@ -85,14 +85,14 @@ def create_cost_str_wd(n,cota):
         min = cota;
         if (n < 10000):
             lista=reversed_prime;
-        elif (n<100000):#100000
-            lista=reversed_prime_lite20;
-        elif (n<1000000):#1000000
-            lista=reversed_prime_lite20;
-        elif (n<10000000):#10000000
+        #elif (n<100000):#100000
+            #lista=reversed_prime_lite20;
+        #elif (n<1000000):#1000000
+            #lista=reversed_prime_lite20;
+        elif (n<10000000):#1E7
             lista=reversed_prime_lite20;
         else:
-            lista=reversed_prime_lite10; 
+            lista=reversed_prime; 
         for p in lista:
                 a = n % p;
                 if(a in costedic):
@@ -200,16 +200,23 @@ fhout = open('SCORE.txt','w')
 ok=0; #Para saltarnos la primera linea del archivo
 fhout.write(ahora.strftime("%Y-%m-%d-%H:%M:%S.%f")[:24]); #El formato exacto es ese
 fhout.write("\n");
+caso=0;
 with open('TEST.txt') as f:
    for line in f:
         if(ok==1):
-            #print(line); #Muestra el caso por el que va
+            print(line); #Muestra el caso por el que va
             line_split = line.split('|')
             id = line_split[0]
             number = int(line_split[1])
             pe = int(line_split[2])
             #Resolvemos el problema
-            (sol,str_sol)=casidef(number,100,pe,3); #Como maximo admitimos 3s por caso
+            t=3;
+            luego=datetime.datetime.now();
+            if((luego-ahora)<datetime.timedelta(0,caso*2)):#180/caso
+                t=5;
+                print("NOS SOBRA EL TIEMPO");
+            (sol,str_sol)=casidef(number,100,pe,t); #Como maximo admitimos 3s por caso
+            caso+=1;
             #Escribimos la solucion
             fhout.write("11869945J|"+id+"|"+str(sol)+"|"+str_sol+"\n")
         else:
